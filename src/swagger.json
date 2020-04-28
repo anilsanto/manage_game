@@ -1,0 +1,110 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "FZ PlatinumCard API",
+        "description": "Rest api to manage plaitnum card offers by flyDubai"
+    },
+    "host": "localhost:5000",
+    "basePath": "/api",
+    "tags": [{
+        "name": "PlatinumCard",
+        "description": ""
+    }],
+    "schemes": [
+        "http"
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/info": {
+            "get": {
+                "tags": [
+                    "Info"
+                ],
+                "summary": "Get api information",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Info"
+                        }
+                    }
+                }
+            }
+        },
+        "/user/create": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "New user creation",
+                "parameters": [{
+                    "name": "user",
+                    "in": "body",
+                    "description": "User that we want to create",
+                    "schema": {
+                        "$ref": "#/definitions/User"
+                    }
+                }],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Info"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "Info": {
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "uniqueItems": true
+                },
+                "status": {
+                    "type": "string",
+                    "uniqueItems": true
+                },
+                "version": {
+                    "type": "string"
+                }
+            }
+        },
+        "Profile": {
+            "required": [
+                "firstname",
+                "lastname",
+                "email",
+                "password",
+                "mobile",
+                "company",
+                "subscribe"
+            ],
+            "properties": {
+                "firstname": {
+                    "type": "string"
+                },
+                "lastname": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                },
+                "mobile": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}
